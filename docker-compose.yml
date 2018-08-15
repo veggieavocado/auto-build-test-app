@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: app-nginx
+    build: ./nginx
+    links:
+      - app:app
+    ports:
+      - 3000:3000
+    depends_on:
+      - app
+    restart: unless-stopped
+
+  app:
+    container_name: app
+    build: .
+    ports:
+      - 8080:8080
+    restart: unless-stopped
