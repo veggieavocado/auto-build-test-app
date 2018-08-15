@@ -20,6 +20,7 @@ const sendTestResult = async () => {
     }
     const res = await axios.post(rainStateURL, resultData);
     console.log(res);
+    console.log('success!')
   }
 }
 
