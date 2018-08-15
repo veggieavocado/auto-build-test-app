@@ -5,9 +5,9 @@ const rainStateURL = '';
 const sendTestResult = async () => {
   const testResult = process.env.TRAVIS_TEST_RESULT || 'NONE';
   let result = '';
-  if (testResult == 0) {
+  if (testResult == 1) {
     result = 'FAIL';
-  } else if (testResult == 1) {
+  } else if (testResult == 0) {
     result = 'PASS';
   } else if (testResult == 'NONE') {
     console.log(`Test Result: ${testResult}`);
