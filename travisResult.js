@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const rainStateURL = '';
+const rainStateURL = 'http://198.13.36.153:8080/api/v1/rainstate/';
 
 const sendTestResult = async () => {
   const testResult = process.env.TRAVIS_TEST_RESULT || 'NONE';
@@ -18,7 +18,8 @@ const sendTestResult = async () => {
       app: 'test_app',
       state: result
     }
-    console.log(resultData);
+    const res = await axios.post(rainStateURL, resultData);
+    console.log(res);
   }
 }
 
